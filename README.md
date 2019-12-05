@@ -4,8 +4,10 @@ Wrapper tool to identify the remote device and push device specific frida-server
 ## Installing
 
 ```bash
-sudo pip install frida-push
+python3 setup.py install
 ```
+
+It works on ubuntu 19.04 and MacOS Catalina. Depending on your installation you may need to create the `python3.x/dist-packages` directory if you get an error. Also `sudo` may be needed to install as root on some systems.
 
 ## Running
 

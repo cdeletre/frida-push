@@ -129,8 +129,8 @@ def download_and_extract(url, fname, force_download=False):
             for chunk in req.iter_content(1024):
                 fh.write(chunk)
 
-        with open(archive_name) as fh:
-            data = lzma.decompress(fh.read())
+        with lzma.open(archive_name) as fh:
+            data = fh.read()
 
         os.unlink(archive_name)
     else:
