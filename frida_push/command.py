@@ -28,7 +28,7 @@ import subprocess
 import sys
 from os import path
 
-import backports.lzma
+import lzma
 import requests
 
 from frida_push import __version__
@@ -129,8 +129,8 @@ def download_and_extract(url, fname, force_download=False):
             for chunk in req.iter_content(1024):
                 fh.write(chunk)
 
-        with backports.lzma.open(archive_name) as fh:
-            data = fh.read()
+        with open(archive_name) as fh:
+            data = lzma.decompress(fh.read())
 
         os.unlink(archive_name)
     else:
